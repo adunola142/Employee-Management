@@ -1,4 +1,4 @@
-FROM ubuntu:13.04
+FROM ubuntu:18.04
 MAINTAINER Adeyemi Misturah <adunola142@gmail.com>
 
 #Update Repository
