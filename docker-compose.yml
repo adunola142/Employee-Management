@@ -1,0 +1,9 @@
+version: '3.0'
+services:
+  php-apache-environment:
+    container_name: Employee-Management
+    image: php:8.0-apache
+    volumes:
+      - ./php/src:/var/www/html/
+    ports:
+      - 8000:80
