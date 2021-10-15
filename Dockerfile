@@ -16,7 +16,7 @@ RUN apt-get install -y php7.3 libapache2-mod-php7.3 php7.3-cli php7.3-common php
 
 #Copy Application Files
 RUN rm -rf /var/www/html/*
-ADD dockerize-php-sample /var/www/html
+ADD Employee-Management /var/www/html
 
 #Configure Apache (Optional)
 RUN chown -R www-data:www-data /var/www
