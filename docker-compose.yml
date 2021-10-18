@@ -1,9 +1,16 @@
-version: '3.0'
+version: '3'
 services:
-  php-apache-environment:
-    container_name: Employee-Management
-    image: php:8.0-apache
-    volumes:
-      - ./php/src:/var/www/html/
+  web:
+    build: .
     ports:
-      - 8000:80
+     - "8080:80"
+  db:
+    image: mysql
+    ports:
+    - "3306:3306"
+    environment:
+    - MYSQL_ROOT_PASSWORD=password
+    - MYSQL_USER=user
+    - MYSQL_PASSWORD=password
+    - MYSQL_DATABASE=project.db
+  
