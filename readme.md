@@ -2,7 +2,8 @@
 FOR CONTEXT:
 
 > Your docker compose should contain something similar:
----
+
+```
   nginx:    
       build: ./nginx/  
       container_name: nginx-container  
@@ -47,6 +48,6 @@ FOR CONTEXT:
       volumes:  
        - /var/lib/mysql  
       command: "true" 
-
+```
 
 [For more information](https://www.atlantic.net/vps-hosting/how-to-deploy-a-php-application-with-nginx-and-mysql-using-docker-and-docker-compose/)
