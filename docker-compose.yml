@@ -13,4 +13,4 @@ services:
     - MYSQL_USER=user
     - MYSQL_PASSWORD=password
     - MYSQL_DATABASE=project.db
-  
+
