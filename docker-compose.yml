@@ -1,6 +1,4 @@
-version: "3"
 
-services:
     nginx:    
         build: ./nginx/
         restart: always  
@@ -32,20 +30,18 @@ services:
         command: "true"  
 
     mysql:    
-        platform: linux/x86_64
         image: mysql:5.7
         restart: always  
         container_name: mysql-container  
         volumes_from:  
         - mysql-data  
         environment:  
-        MYSQL_ROOT_PASSWORD: root  
-        MYSQL_DATABASE: project.sql  
-        MYSQL_USER: user  
-        MYSQL_PASSWORD: password  
+        - MYSQL_ROOT_PASSWORD:"admin"  
+        - MYSQL_DATABASE project.sql  
+        - MYSQL_USER:user  
+        - MYSQL_PASSWORD:"password"
 
     mysql-data:    
-        platform: linux/x86_64
         image: mysql:5.7  
         container_name: mysql-data-container  
         volumes:  
@@ -61,6 +57,6 @@ services:
         ports:
         - 8183:80
         environment:
-        PMA_USER: root
-        PMA_PASSWORD: admin
-        PMA_ARBITRARY: 1
+        - PMA_USER:root
+        - PMA_PASSWORD:"admin"
+        - PMA_ARBITRARY:1
