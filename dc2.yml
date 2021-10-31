@@ -1,24 +1,23 @@
-
-
   nginx:    
-      build: ./nginx/  
+      build: ./nginx/
+      restart: always  
       container_name: nginx-container  
       ports:  
-       - 80:80  
+       - 8080:80 
       links:  
-       - php  
-      volumes_from:  
-       - app-data  
-
-  php:    
-      build: ./php/  
-      container_name: php-container  
-      expose:  
-       - 9000  
-      links:  
+       - php
        - mysql  
       volumes_from:  
-       - app-data  
+       - app-data
+  
+  php:    
+      build: ./php/
+      restart: always  
+      container_name: php-container  
+      links:  
+       - mysql  
+      volumes:  
+       - ./app/:/var/www/html  
 
   app-data:    
       image: php:7.0-fpm  
@@ -28,7 +27,8 @@
       command: "true"  
 
   mysql:    
-      image: mysql:5.7  
+      image: mysql:5.7
+      restart: always  
       container_name: mysql-container  
       volumes_from:  
        - mysql-data  
@@ -45,3 +45,15 @@
        - /var/lib/mysql  
       command: "true" 
 
+ 
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      restart: always
+      links:
+       - mysql
+      ports:
+       - 8183:80
+      environment:
+       PMA_USER: root
+       PMA_PASSWORD: admin
+       PMA_ARBITRARY: 1

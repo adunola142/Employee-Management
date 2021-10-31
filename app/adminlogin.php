@@ -313,7 +313,7 @@ if(isset($_POST['submit']))
  $password= $_POST['pass'];
  
 
- $link=mysqli_connect("localhost","root","","project") or die($link); 
+ $link=mysqli_connect("3.129.87.61","root","","project") or die($link); 
   $username =mysqli_real_escape_string($link,$username);
   $password =mysqli_real_escape_string($link,$password);
 
